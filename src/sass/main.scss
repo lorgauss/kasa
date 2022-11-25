@@ -1,0 +1,16 @@
+@import "./abstracts/variables";
+
+@import "./components/Collapse.scss";
+@import "./components/Slideshow.scss";
+@import "./components/Tag.scss";
+@import "./components/Thumb.scss";
+@import"./components/loadingspinner";
+
+@import "./layout/footer";
+@import "./layout/header";
+@import "./layout/app";
+
+@import "./pages/accueil";
+@import "./pages/aPropos";
+@import "./pages/erreur";
+@import "./pages/logement";
