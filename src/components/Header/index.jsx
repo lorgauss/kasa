@@ -2,7 +2,6 @@ import { PureComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import logo from '../../assets/logoCouleur.svg';
-import '../../styles/style.css';
 
 export default class Header extends PureComponent {
     render() {

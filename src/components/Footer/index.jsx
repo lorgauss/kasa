@@ -1,7 +1,6 @@
 import { PureComponent } from 'react';
 
 import logo from '../../assets/logoBlanc.svg';
-import '../../styles/style.css';
 
 export default class Footer extends PureComponent {
     render() {

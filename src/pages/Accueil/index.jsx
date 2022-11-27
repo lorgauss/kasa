@@ -5,7 +5,6 @@ import Erreur from '../Erreur';
 import Thumb from '../../components/desktop/Thumb';
 
 import accueilImg from '../../assets/accueil.jpg';
-import '../../styles/style.css';
 
 export default class Accueil extends PureComponent {
     render() {

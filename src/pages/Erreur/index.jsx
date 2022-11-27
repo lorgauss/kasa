@@ -2,8 +2,6 @@ import { PureComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import '../../styles/style.css';
-
 export default class Error extends PureComponent {
     constructor(props) {
         super(props);

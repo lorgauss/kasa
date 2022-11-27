@@ -2,7 +2,6 @@ import { Component } from 'react';
 import Collapse from '../../components/desktop/Collapse';
 
 import imgAPropos from '../../assets/apropos.jpg';
-import '../../styles/style.css';
 
 export default class APropos extends Component {
     render() {

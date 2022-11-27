@@ -7,7 +7,6 @@ import Tag from '../../components/desktop/Tag';
 import Collapse from '../../components/desktop/Collapse';
 
 import etoile from '../../assets/etoile.svg';
-import '../../styles/style.css';
 
 export default class Logement extends PureComponent {
     constructor() {
