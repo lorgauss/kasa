@@ -5,6 +5,7 @@ import logo from '../../assets/logoCouleur.svg';
 
 export default class Header extends PureComponent {
     render() {
+        //Return le code html pour le header avec des NavLink pour naviguer à travers les pages de l'app
         return (
             <nav className="navHeader">
                 <ul>

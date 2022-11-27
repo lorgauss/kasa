@@ -4,15 +4,18 @@ import chevron from '../../assets/chevron.svg';
 
 export default class Collapse extends PureComponent {
     render() {
+        //Récupération des données dans les const
         const { id } = this.props;
         const { classElement } = this.props;
         const { title } = this.props;
         const { content } = this.props;
 
+        //Fonction retournant le code html approprié à l'ouverture/fermeture d'un Collapse
         const openDivCollapse = () => {
             let divElementImg = document.querySelector(`#${id} > p > img`);
             let divElementDiv = document.querySelector(`#${id} > div`);
 
+            //Si le Collapse est fermé
             if (divElementImg.alt === 'Déployer') {
                 divElementImg.alt = 'Réduire';
                 divElementImg.style.transform = 'rotate(90deg)';
@@ -27,6 +30,7 @@ export default class Collapse extends PureComponent {
                     divElementDiv.style.paddingBottom = '5px';
                     divElementDiv.style.height = 'initial';
                 }
+            //Si le Collapse est ouvert
             } else {
                 divElementImg.alt = 'Déployer';
                 divElementImg.style.transform = 'rotate(270deg)';
@@ -36,6 +40,7 @@ export default class Collapse extends PureComponent {
             }
         };
 
+        //Création d'un collapse avec les données appropriées
         return (
             <div id={id} className={classElement}>
                 <p onClick={() => openDivCollapse()}>
@@ -46,9 +51,7 @@ export default class Collapse extends PureComponent {
                     {typeof content === 'string' ? (
                         <p>{content}</p>
                     ) : (
-                        content.map((equipment, index) => (
-                            <p key={index}>{equipment}</p>
-                        ))
+                        content.map((equipment, index) => ( <p key={index}>{equipment}</p> ))
                     )}
                 </div>
             </div>
@@ -56,6 +59,7 @@ export default class Collapse extends PureComponent {
     }
 }
 
+//Précision de l'aspect required sur la prop transmise
 Collapse.propTypes = {
     id: PropTypes.string.isRequired,
     classElement: PropTypes.string.isRequired,

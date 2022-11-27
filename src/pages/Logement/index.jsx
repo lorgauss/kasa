@@ -9,6 +9,7 @@ import Collapse from '../../components/desktop/Collapse';
 import etoile from '../../assets/etoile.svg';
 
 export default class Logement extends PureComponent {
+    //Récupération de l'id du logement à afficher récupérer grace au chemin de l'url
     constructor() {
         super();
         this.state = {
@@ -17,43 +18,38 @@ export default class Logement extends PureComponent {
     }
 
     render() {
+        //Retour en haut de la page et changement aproprié du texte de l'onglet
         window.scrollTo(0, 0);
+        //Récupération dans des constantes des données transmises (prop) et calculée (constructor)
         const { id } = this.state;
         const { logementsData } = this.props;
-        const logementData = logementsData.filter((house) => {
-            return house.id === id;
-        });
-        /**
-         * setTitle - change le titre de la page
-         * @param  {String} title titre du logement
-         */
-        const setTitle = (title) => {
-            window.document.title = `Kasa - ${title}`;
-        };
-        /**
-         * getRating - Met en forme la note du logement
-         * @param  {String} rating note du logement
-         * @return {Array} arrayRating contient les notes sous forme HTML
-         */
+        //Récupération des données du logement approprié grace à son id
+        const logementData = logementsData.filter((house) => {return house.id === id});
+
+        //Fonction permettant de changer le texte de l'onglet
+        const setTitle = (title) => { window.document.title = `Kasa - ${title}`;};
+
+        //Fonction transformant le rating numérique sous forme de rating avec des étoiles le tout au format html
         const getRating = (rating) => {
             let arrayRating = [];
             for (let i = 1; i < 6; i++) {
                 let etoileStyle;
+
                 if (i > parseInt(rating)) etoileStyle = 'starGray';
                 else etoileStyle = 'starRed';
+
                 arrayRating.push(
                     <span key={i}>
-                        <img
-                            className={etoileStyle}
-                            src={etoile}
-                            alt="Note du logement"
-                        />
+                        <img className={etoileStyle} src={etoile} alt="Note du logement" />
                     </span>
                 );
             }
             return arrayRating;
         };
 
+        //Création de la page logement grace au components Slideshow et Collapse
+        //Chaque élément contient le contenu approprié grace au données précédement récupérées
+        //lignes 56 & 84 Si il n'y a pas de données trouvées on affiche une erreur 404
         return (
             <main className="mainHousing">
                 <section>
@@ -65,13 +61,7 @@ export default class Logement extends PureComponent {
                                 <h2>{house.title}</h2>
                                 <h3>{house.location}</h3>
                                 <div className="divTags">
-                                    {house.tags.map((tag, index) => (
-                                        <Tag
-                                            key={index}
-                                            tag={tag}
-                                            index={index}
-                                        />
-                                    ))}
+                                    {house.tags.map((tag, index) => (<Tag key={index} tag={tag} index={index} />))}
                                 </div>
                                 <div className="divRatingAndHost">
                                     <div className="divRating">
@@ -79,29 +69,14 @@ export default class Logement extends PureComponent {
                                     </div>
                                     <div className="divHost">
                                         <span>
-                                            {house.host.name.split(' ')[0]}
-                                            <br />
-                                            {house.host.name.split(' ')[1]}
+                                            {house.host.name.split(' ')[0]}  <br /> {house.host.name.split(' ')[1]}
                                         </span>
-                                        <img
-                                            src={house.host.picture}
-                                            alt={house.host.name}
-                                        />
+                                        <img src={house.host.picture} alt={house.host.name} />
                                     </div>
                                 </div>
                                 <div className="divCollapse">
-                                    <Collapse
-                                        id={'description'}
-                                        classElement={'divDescription'}
-                                        title={'Description'}
-                                        content={house.description}
-                                    />
-                                    <Collapse
-                                        id={'equipements'}
-                                        classElement={'divEquipements'}
-                                        title={'Équipements'}
-                                        content={house.equipments}
-                                    />
+                                    <Collapse id={'description'} classElement={'divDescription'} title={'Description'} content={house.description} />
+                                    <Collapse id={'equipements'} classElement={'divEquipements'} title={'Équipements'}  content={house.equipments} />
                                 </div>
                             </article>
                         ))
@@ -114,6 +89,7 @@ export default class Logement extends PureComponent {
     }
 }
 
+//Précision de l'aspect required sur la prop transmise
 Logement.propTypes = {
     logementsData: PropTypes.array.isRequired,
 };

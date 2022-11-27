@@ -13,6 +13,7 @@ import Logement from './pages/Logement'
 import './styles/style.css';
 
 export default class App extends PureComponent {
+    //Mise en place du sytème de chargement de la page et de récupération des données sur les logements
     constructor() {
         super();
         this.state = {
@@ -21,6 +22,7 @@ export default class App extends PureComponent {
         };
     }
 
+    //Récupération des données et mise à jour du statut de chargement
     componentDidMount() {
         fetch(`${window.origin}/logements.json`)
             .then((res) => res.json())
@@ -32,6 +34,9 @@ export default class App extends PureComponent {
     }
 
     render() {
+        //ligne 45 affichage de la page de chargement quand cela est pertinant
+        //ligne 46 à 55 Router de l'application
+        //const récupérants les données des logements et le statut de chargement de la page
         const { loading } = this.state;
         const { logementsData } = this.state;
         return (

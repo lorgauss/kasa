@@ -4,6 +4,7 @@ import logo from '../../assets/logoBlanc.svg';
 
 export default class Footer extends PureComponent {
     render() {
+        //Return le code html pour le footer
         return (
             <footer>
                 <img src={logo} alt="Logo Kasa" />
