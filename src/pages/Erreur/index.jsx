@@ -29,7 +29,7 @@ export default class Error extends PureComponent {
             <div className="divError">
                 <h2>{code}</h2>
                 <p>{messageError}</p>
-                <NavLink to="/" exact>
+                <NavLink to="/">
                     Retourner sur la page d’accueil
                 </NavLink>
             </div>
