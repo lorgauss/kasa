@@ -61,7 +61,7 @@ export default class Logement extends PureComponent {
                                 <h2>{house.title}</h2>
                                 <h3>{house.location}</h3>
                                 <div className="divTags">
-                                    {house.tags.map((tag, index) => (<Tag key={index} tag={tag} index={index} />))}
+                                    {house.tags.map((tag, index) => (<Tag tag={tag} index={index} />))}
                                 </div>
                                 <div className="divRatingAndHost">
                                     <div className="divRating">
